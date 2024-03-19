@@ -1,7 +1,7 @@
 package com.example.hellojava.controller;
 
 import com.example.hellojava.base.Result;
-import com.example.hellojava.model.User;
+import com.example.hellojava.model.user.User;
 import com.example.hellojava.service.UserService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,7 +14,7 @@ import java.util.LinkedHashMap;
 import java.util.List;
 
 /**
- * User information controller
+ * Get and add user info and so on.
  */
 @Slf4j
 @RestController
@@ -29,9 +29,9 @@ public class UserController {
     }
 
     /**
-     * Get user information
+     * Find all user info
      *
-     * @return user object
+     * @return List<User>
      */
     @PostMapping("/find-all")
     public Result<Object> findAll() {
@@ -41,6 +41,8 @@ public class UserController {
 
     /**
      * Return Map data using LinkedHashMap
+     *
+     * @return Map
      */
     @PostMapping("/test-case")
     public Result<LinkedHashMap<Object, Object>> mapUse() {
@@ -53,7 +55,7 @@ public class UserController {
      * Single file upload
      *
      * @param file file
-     * @return success data
+     * @return "success"
      */
     @PostMapping("/upload-file")
     public Result<String> uploadFile(MultipartFile file) {

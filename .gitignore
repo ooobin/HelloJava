@@ -51,6 +51,7 @@ build/
 *.nar
 *.ear
 *.zip
+*.gz
 *.tar.gz
 *.rar
 

@@ -1,6 +1,6 @@
 package com.example.hellojava.service;
 
-import com.example.hellojava.model.User;
+import com.example.hellojava.model.user.User;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.util.List;
@@ -8,9 +8,9 @@ import java.util.List;
 public interface UserService {
 
     /**
-     * Get user information
+     * Find all users info
      *
-     * @return user object
+     * @return List<User>
      */
     List<User> findAll();
 

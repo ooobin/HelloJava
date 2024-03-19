@@ -4,8 +4,9 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 
 /**
- * Unified result to return
- * @param <T> data type
+ * Format result to return
+ *
+ * @param <T> type
  */
 @Data
 @AllArgsConstructor
@@ -21,16 +22,16 @@ public class Result<T> {
     private String message;
 
     /**
-     * Success data
+     * Successful data
      */
     private T data;
 
-    // Static method, create successful result
+    // Create successful result
     public static <T> Result<T> success(T data) {
         return new Result<>(true, null, data);
     }
 
-    // Static method, create failed result
+    // Create failed result
     public static <T> Result<T> failure(String message) {
         return new Result<>(false, message, null);
     }

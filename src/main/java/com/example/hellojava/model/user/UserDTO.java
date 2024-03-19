@@ -1,10 +1,7 @@
-package com.example.hellojava.model;
+package com.example.hellojava.model.user;
 
 import lombok.Data;
 
-/**
- * Data Transfer Object
- */
 @Data
 public class UserDTO {
     /**

@@ -1,6 +1,6 @@
 package com.example.hellojava.mapper;
 
-import com.example.hellojava.model.User;
+import com.example.hellojava.model.user.User;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Select;
 
@@ -10,9 +10,9 @@ import java.util.List;
 public interface UserMapper {
 
     /**
-     * Get user information
+     * Find all user info
      *
-     * @return user object
+     * @return List<User>
      */
     @Select("select * from users;")
     List<User> findAll();

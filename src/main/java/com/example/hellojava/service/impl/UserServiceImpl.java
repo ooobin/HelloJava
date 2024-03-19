@@ -1,7 +1,7 @@
 package com.example.hellojava.service.impl;
 
 import com.example.hellojava.mapper.UserMapper;
-import com.example.hellojava.model.User;
+import com.example.hellojava.model.user.User;
 import com.example.hellojava.service.UserService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
