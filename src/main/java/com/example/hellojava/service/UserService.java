@@ -1,9 +1,7 @@
 package com.example.hellojava.service;
 
-import com.example.hellojava.model.user.User;
+import com.fasterxml.jackson.databind.node.ObjectNode;
 import org.springframework.web.multipart.MultipartFile;
-
-import java.util.List;
 
 public interface UserService {
 
@@ -12,7 +10,7 @@ public interface UserService {
      *
      * @return List<User>
      */
-    List<User> findAll();
+    ObjectNode findAll();
 
     /**
      * Single file upload

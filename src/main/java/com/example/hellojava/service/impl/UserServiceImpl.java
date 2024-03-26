@@ -3,6 +3,8 @@ package com.example.hellojava.service.impl;
 import com.example.hellojava.mapper.UserMapper;
 import com.example.hellojava.model.user.User;
 import com.example.hellojava.service.UserService;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.databind.node.ObjectNode;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -26,13 +28,13 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public List<User> findAll() {
-        /// Value to tree
-//        ObjectMapper mapper = new ObjectMapper();
-//        ObjectNode node = mapper.valueToTree(user);
-//        node.put("name", "name");
+    public ObjectNode findAll() {
+        List<User> allUsers = userMapper.findAll();
+        ObjectMapper mapper = new ObjectMapper();
+        ObjectNode node = mapper.valueToTree(allUsers.get(0));
+        node.put("key", "value");
 
-        return userMapper.findAll();
+        return node;
     }
 
     @Override
@@ -45,7 +47,7 @@ public class UserServiceImpl implements UserService {
         try {
             file.transferTo(newFile);
         } catch (IOException e) {
-            log.error("Store file failed");
+            log.error("Store file failed", e);
             throw new RuntimeException(e);
         }
     }
