@@ -5,7 +5,7 @@ import lombok.Getter;
 
 @Getter
 @AllArgsConstructor
-public enum AreaEnums {
+public enum PostCodesEnum {
     /**
      * 济南
      */
@@ -26,7 +26,7 @@ public enum AreaEnums {
      * @return area
      */
     public static String getArea(int code) {
-        for (AreaEnums value : AreaEnums.values()) {
+        for (PostCodesEnum value : PostCodesEnum.values()) {
             if (value.getCode() == code) {
                 return value.getArea();
             }
@@ -35,6 +35,6 @@ public enum AreaEnums {
     }
 
     public static void main(String[] args) {
-        System.out.println(AreaEnums.getArea(250000));
+        System.out.println(PostCodesEnum.getArea(250000));
     }
 }
