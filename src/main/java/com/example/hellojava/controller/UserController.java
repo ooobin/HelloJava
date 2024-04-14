@@ -3,6 +3,7 @@ package com.example.hellojava.controller;
 import com.example.hellojava.base.Result;
 import com.example.hellojava.service.UserService;
 import com.fasterxml.jackson.databind.node.ObjectNode;
+import lombok.NonNull;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -43,7 +44,7 @@ public class UserController {
      * @return "success"
      */
     @PostMapping("/upload-file")
-    public Result<String> uploadFile(MultipartFile file) {
+    public Result<String> uploadFile(@NonNull MultipartFile file) {
         userService.uploadFile(file);
         return Result.success("success");
     }

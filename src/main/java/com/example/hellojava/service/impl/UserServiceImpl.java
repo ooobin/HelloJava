@@ -14,6 +14,7 @@ import org.springframework.web.multipart.MultipartFile;
 import java.io.File;
 import java.io.IOException;
 import java.util.List;
+import java.util.UUID;
 
 @Slf4j
 @Service
@@ -31,7 +32,7 @@ public class UserServiceImpl implements UserService {
     public ObjectNode findAll() {
         List<User> allUsers = userMapper.findAll();
         ObjectMapper mapper = new ObjectMapper();
-        ObjectNode node = mapper.valueToTree(allUsers.get(0));
+        ObjectNode node = mapper.valueToTree(allUsers);
         node.put("key", "value");
 
         return node;
@@ -39,16 +40,14 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public void uploadFile(MultipartFile file) {
-        String filePath = "";
-        String fileName = file.getOriginalFilename();
-        String pathName = filePath + fileName;
-
-        File newFile = new File(pathName);
+        // Save file to local
+        String fileName = UUID.randomUUID().toString();
+        String filePath = "/path/to/tomcat/webapps/myapp/images";
+        File dest = new File(filePath + fileName);
         try {
-            file.transferTo(newFile);
+            file.transferTo(dest);
         } catch (IOException e) {
-            log.error("Store file failed", e);
-            throw new RuntimeException(e);
+            log.error("Upload file failed", e);
         }
     }
 
