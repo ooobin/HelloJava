@@ -40,6 +40,9 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public void uploadFile(MultipartFile file) {
+        // 10MB 以下推荐使用 Base64
+        // 大文件推荐静态资源映射
+
         // Save file to local
         String fileName = UUID.randomUUID().toString();
         String filePath = "/path/to/tomcat/webapps/myapp/images";
