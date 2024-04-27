@@ -13,9 +13,9 @@ public class WebMvcConfig implements WebMvcConfigurer {
     @Override
     public void addCorsMappings(CorsRegistry registry) {
         registry.addMapping("/**")
-                .allowedOrigins("*", "https://domain1.com")
-                .allowedMethods("GET", "POST")
-//                .allowedHeaders("header1", "header2", "header3")
+                .allowedOrigins("*")
+                .allowedMethods("*")
+                .allowedHeaders("*")
                 .allowCredentials(false) // 是否允许发送 Cookie
                 .maxAge(3600);
     }
