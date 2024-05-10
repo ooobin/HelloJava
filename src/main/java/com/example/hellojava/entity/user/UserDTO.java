@@ -1,4 +1,4 @@
-package com.example.hellojava.model.user;
+package com.example.hellojava.entity.user;
 
 import lombok.Data;
 

@@ -1,6 +1,6 @@
 package com.example.hellojava.mapper;
 
-import com.example.hellojava.model.user.User;
+import com.example.hellojava.entity.user.User;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Select;
 

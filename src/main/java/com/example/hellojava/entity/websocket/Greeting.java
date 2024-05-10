@@ -1,4 +1,4 @@
-package com.example.hellojava.model.websocket;
+package com.example.hellojava.entity.websocket;
 
 import lombok.Data;
 

@@ -1,6 +1,6 @@
 package com.example.hellojava.websocket;
 
-import com.example.hellojava.model.websocket.Greeting;
+import com.example.hellojava.entity.websocket.Greeting;
 import org.springframework.messaging.handler.annotation.MessageMapping;
 import org.springframework.messaging.handler.annotation.SendTo;
 import org.springframework.web.bind.annotation.RestController;
