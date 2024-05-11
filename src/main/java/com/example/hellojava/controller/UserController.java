@@ -3,6 +3,7 @@ package com.example.hellojava.controller;
 import com.example.hellojava.base.Result;
 import com.example.hellojava.service.UserService;
 import com.fasterxml.jackson.databind.node.ObjectNode;
+import com.google.gson.JsonObject;
 import lombok.NonNull;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -33,7 +34,7 @@ public class UserController {
      */
     @PostMapping("/find-all")
     public Result<Object> findAll() {
-        ObjectNode node = userService.findAll();
+        JsonObject node = userService.findAll();
         return Result.success(node);
     }
 

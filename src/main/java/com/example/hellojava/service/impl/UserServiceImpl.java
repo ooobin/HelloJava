@@ -3,8 +3,9 @@ package com.example.hellojava.service.impl;
 import com.example.hellojava.mapper.UserMapper;
 import com.example.hellojava.entity.user.User;
 import com.example.hellojava.service.UserService;
-import com.fasterxml.jackson.databind.ObjectMapper;
-import com.fasterxml.jackson.databind.node.ObjectNode;
+import com.google.gson.Gson;
+import com.google.gson.JsonObject;
+import com.google.gson.JsonParser;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -29,13 +30,13 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public ObjectNode findAll() {
+    public JsonObject findAll() {
         List<User> allUsers = userMapper.findAll();
-        ObjectMapper mapper = new ObjectMapper();
-        ObjectNode node = mapper.valueToTree(allUsers);
-        node.put("key", "value");
-
-        return node;
+        Gson gson = new Gson();
+        String jsonString = gson.toJson(allUsers);
+        JsonObject jsonObject = JsonParser.parseString(jsonString).getAsJsonObject();
+        jsonObject.addProperty("status", 200);
+        return jsonObject;
     }
 
     @Override

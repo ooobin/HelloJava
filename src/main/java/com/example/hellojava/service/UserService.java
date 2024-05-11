@@ -1,6 +1,6 @@
 package com.example.hellojava.service;
 
-import com.fasterxml.jackson.databind.node.ObjectNode;
+import com.google.gson.JsonObject;
 import org.springframework.web.multipart.MultipartFile;
 
 public interface UserService {
@@ -10,7 +10,7 @@ public interface UserService {
      *
      * @return List<User>
      */
-    ObjectNode findAll();
+    JsonObject findAll();
 
     /**
      * Single file upload
