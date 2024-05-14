@@ -1,7 +1,8 @@
 package com.example.hellojava.service;
 
-import com.google.gson.JsonObject;
 import org.springframework.web.multipart.MultipartFile;
+
+import java.util.HashMap;
 
 public interface UserService {
 
@@ -10,7 +11,7 @@ public interface UserService {
      *
      * @return List<User>
      */
-    JsonObject findAll();
+    HashMap<Object, Object> findAll();
 
     /**
      * Single file upload

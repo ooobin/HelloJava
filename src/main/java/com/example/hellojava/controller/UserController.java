@@ -2,11 +2,10 @@ package com.example.hellojava.controller;
 
 import com.example.hellojava.base.Result;
 import com.example.hellojava.service.UserService;
-import com.fasterxml.jackson.databind.node.ObjectNode;
-import com.google.gson.JsonObject;
 import lombok.NonNull;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -32,10 +31,9 @@ public class UserController {
      *
      * @return List<User>
      */
-    @PostMapping("/find-all")
+    @GetMapping("/find-all")
     public Result<Object> findAll() {
-        JsonObject node = userService.findAll();
-        return Result.success(node);
+        return Result.success(userService.findAll());
     }
 
     /**

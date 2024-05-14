@@ -3,9 +3,6 @@ package com.example.hellojava.service.impl;
 import com.example.hellojava.mapper.UserMapper;
 import com.example.hellojava.entity.user.User;
 import com.example.hellojava.service.UserService;
-import com.google.gson.Gson;
-import com.google.gson.JsonObject;
-import com.google.gson.JsonParser;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -14,6 +11,7 @@ import org.springframework.web.multipart.MultipartFile;
 
 import java.io.File;
 import java.io.IOException;
+import java.util.HashMap;
 import java.util.List;
 import java.util.UUID;
 
@@ -30,13 +28,12 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public JsonObject findAll() {
+    public HashMap<Object, Object> findAll() {
         List<User> allUsers = userMapper.findAll();
-        Gson gson = new Gson();
-        String jsonString = gson.toJson(allUsers);
-        JsonObject jsonObject = JsonParser.parseString(jsonString).getAsJsonObject();
-        jsonObject.addProperty("status", 200);
-        return jsonObject;
+        HashMap<Object, Object> result = new HashMap<>();
+        result.put("users", allUsers);
+        result.put("status", 200);
+        return result;
     }
 
     @Override
