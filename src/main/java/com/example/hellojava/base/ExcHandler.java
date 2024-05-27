@@ -19,6 +19,7 @@ public class ExcHandler {
 
     private static void logException(Exception e) {
 //        e.printStackTrace();
+
         // Log the exception message and stack trace
         log.error("An exception occurred: ");
         log.error(ExceptionUtils.getMessage(e));

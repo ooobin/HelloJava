@@ -7,11 +7,11 @@ import java.util.HashMap;
 public interface UserService {
 
     /**
-     * Find all users info
+     * Get all users' info
      *
-     * @return List<User>
+     * @return users list
      */
-    HashMap<Object, Object> findAll();
+    HashMap<Object, Object> getAll();
 
     /**
      * Single file upload

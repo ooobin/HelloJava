@@ -10,12 +10,12 @@ import java.util.List;
 public interface UserMapper {
 
     /**
-     * Find all user info
+     * Get all users' info
      *
-     * @return List<User>
+     * @return users list
      */
     @Select("select * from users;")
-    List<User> findAll();
+    List<User> getAll();
 
 }
 

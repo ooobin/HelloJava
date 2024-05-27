@@ -11,9 +11,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.multipart.MultipartFile;
 
-/**
- * Get and add user info and so on.
- */
 @Slf4j
 @RestController
 @RequestMapping("/users")
@@ -26,22 +23,11 @@ public class UserController {
         this.userService = userService;
     }
 
-    /**
-     * Find all user info
-     *
-     * @return List<User>
-     */
-    @GetMapping("/find-all")
-    public Result<Object> findAll() {
-        return Result.success(userService.findAll());
+    @GetMapping("/get-all")
+    public Result<Object> getAll() {
+        return Result.success(userService.getAll());
     }
 
-    /**
-     * Single file upload
-     *
-     * @param file file
-     * @return "success"
-     */
     @PostMapping("/upload-file")
     public Result<String> uploadFile(@NonNull MultipartFile file) {
         userService.uploadFile(file);
