@@ -13,4 +13,12 @@
         </foreach>
     </select>
 
+    <insert id="insertCimeDataBatch" parameterType="java.util.List">
+        insert into ${tableName} (stationId, ${valueIndex})
+        values
+        <foreach collection="cimeDataList" item="cimeData" separator=",">
+            (#{cimeData.stationId}, #{cimeData.value})
+        </foreach>
+    </insert>
+
 </mapper>
