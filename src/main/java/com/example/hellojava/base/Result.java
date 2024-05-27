@@ -3,11 +3,6 @@ package com.example.hellojava.base;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 
-/**
- * Format result to return
- *
- * @param <T> type
- */
 @Data
 @AllArgsConstructor
 public class Result<T> {
