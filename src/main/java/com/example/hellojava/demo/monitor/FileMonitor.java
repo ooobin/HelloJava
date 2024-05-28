@@ -35,7 +35,7 @@ public class FileMonitor implements ApplicationRunner {
         monitor.addObserver(observer);
 
         // 启动文件变化监听器
-        monitor.start();
+//        monitor.start();
     }
 }
 

@@ -8,7 +8,7 @@
         from users
         where true
         and username in
-        <foreach collection="usernames.split(',')" item="item" separator="," open="(" close=")">
+        <foreach collection="usernameList" item="item" separator="," open="(" close=")">
             #{item}
         </foreach>
     </select>
