@@ -1,6 +1,5 @@
 package com.example.hellojava.schedule;
 
-import jakarta.annotation.PostConstruct;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Component;
@@ -9,12 +8,6 @@ import org.springframework.stereotype.Component;
 @Component
 //@EnableScheduling
 public class TestSchedule {
-
-    @PostConstruct
-    public void init() {
-        // 这里写你需要在系统启动时执行一次的代码
-        System.out.println("系统启动，执行一次的任务");
-    }
 
     /**
      * 秒 分 时 日 月 周
